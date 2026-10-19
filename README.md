@@ -2,12 +2,6 @@
 
 고객별 자료 요청과 제출 상태, 마감일을 한곳에서 관리하는 웹서비스입니다.
 
-배포 주소: [https://clientflow.sadyj.workers.dev](https://clientflow.sadyj.workers.dev)
-
-## 제작 목적
-이 프로젝트는 비개발자도 AI 코딩 도구를 활용해 실제 업무용 웹서비스를 만들 수 있도록 교육 과정을 설계하기 위해 제작한 포트폴리오입니다.
-Codex를 활용해 요구사항 정리 → 구현 계획 → 기능 단위 개발 → 검증/디버깅 → 배포의 과정을 직접 진행했습니다.
-
 ## 주요 기능
 
 - **대시보드**
@@ -43,8 +37,11 @@ Codex를 활용해 요구사항 정리 → 구현 계획 → 기능 단위 개�
 ```bash
 npm install
 npx wrangler d1 migrations apply DB --local
+npx wrangler d1 execute DB --local --file=seed.sql
 npm run dev
 ```
+
+`seed.sql`은 예시 데이터를 넣습니다. 마감일은 실행한 날을 기준으로 정해지므로 언제 넣어도 지연, 오늘 마감, 남은 날짜가 함께 보입니다. 로컬 DB에만 사용합니다.
 
 브라우저에서 [http://127.0.0.1:5173](http://127.0.0.1:5173)을 엽니다.
 
@@ -72,6 +69,7 @@ src/App.tsx       화면과 사용자 동작
 src/App.css       화면 스타일
 worker/index.ts   Cloudflare Workers API
 migrations/       D1 데이터베이스 변경 기록
+seed.sql          로컬 DB 예시 데이터
 wrangler.json     Workers와 D1 연결 설정
 ```
 
