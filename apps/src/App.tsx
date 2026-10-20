@@ -92,11 +92,6 @@ function deadlineInfo(materialRequest: MaterialRequest, today = todayString()) {
 	return { text: `D-${difference}`, type: "upcoming" };
 }
 
-function shortDate(date: string) {
-	const [, month, day] = date.split("-");
-	return `${Number(month)}/${Number(day)}`;
-}
-
 function cellText(value: unknown) {
 	return value === null || value === undefined ? "" : String(value).trim();
 }
@@ -581,12 +576,6 @@ function App() {
 	const visibleDashboardCustomers = dashboardFilter === "all"
 		? dashboardCustomers
 		: dashboardCustomers.filter((customer) => customer.status === dashboardFilter);
-	const dashboardFilterLabel: Record<DashboardFilter, string> = {
-		all: "전체 고객",
-		in_progress: "진행",
-		overdue: "확인",
-		completed: "완료",
-	};
 	const importCustomerCount = new Set(importRows.map((row) => row.customer_name)).size;
 	const importMaterialRequestCount = importRows.filter((row) => row.material_request !== null).length;
 	const hasUnsubmittedRequests = materialRequests.some((materialRequest) => materialRequest.status !== "submitted");
