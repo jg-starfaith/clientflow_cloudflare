@@ -35,6 +35,7 @@
 ## 로컬에서 실행하기
 
 ```bash
+cd apps
 npm install
 npx wrangler d1 migrations apply DB --local
 npx wrangler d1 execute DB --local --file=seed.sql
@@ -47,7 +48,7 @@ npm run dev
 
 ## 확인하기
 
-아래 명령은 타입 검사, 화면 빌드, 배포 전 확인을 한 번에 실행합니다.
+아래 명령은 타입 검사, 화면 빌드, 배포 전 확인을 한 번에 실행합니다. `apps` 폴더에서 실행합니다.
 
 ```bash
 npm run check
@@ -55,7 +56,7 @@ npm run check
 
 ## 운영 환경에 배포하기
 
-DB 구조가 바뀌었으면 먼저 운영 DB에 마이그레이션을 적용합니다.
+DB 구조가 바뀌었으면 먼저 운영 DB에 마이그레이션을 적용합니다. `apps` 폴더에서 실행합니다.
 
 ```bash
 npx wrangler d1 migrations apply DB --remote
@@ -65,12 +66,14 @@ npm run deploy
 ## 프로젝트 구조
 
 ```text
-src/App.tsx       화면과 사용자 동작
-src/App.css       화면 스타일
-worker/index.ts   Cloudflare Workers API
-migrations/       D1 데이터베이스 변경 기록
-seed.sql          로컬 DB 예시 데이터
-wrangler.json     Workers와 D1 연결 설정
+apps/             소스 코드 (이 폴더에서 npm, wrangler 명령을 실행)
+  src/App.tsx       화면과 사용자 동작
+  src/App.css       화면 스타일
+  worker/index.ts   Cloudflare Workers API
+  migrations/       D1 데이터베이스 변경 기록
+  seed.sql          로컬 DB 예시 데이터
+  wrangler.json     Workers와 D1 연결 설정
+docs/             요구사항과 작업 문서
 ```
 
 ## 참고
