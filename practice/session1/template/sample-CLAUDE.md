@@ -1,0 +1,13 @@
+# 작업 지침
+- 회사 이름: 팀스파르타
+- 프로젝트 이름: clientflow_cloudflare
+- DB 구조를 바꿀 때는 `apps/migrations/`에 SQL 파일을 새로 추가한다.
+- 사용 기술은 React + TypeScript, Vite, Cloudflare Workers, Cloudflare D1이다.
+- 로컬 실행은 `apps` 폴더에서 `npm install`, `npx wrangler d1 migrations apply DB --local`, `npm run dev` 순서로 한다.
+- 요구사항과 작업 문서는 `docs/`에 둔다.
+- 추측하지 말고 로그부터 확인한다.
+- 운영 DB를 건드리기 전에는 먼저 현재 데이터를 확인한다.
+- 작업이 끝나면 `apps` 폴더에서 `npm run check`를 실행한다.
+- 응답과 문서는 한국어로 쓴다.
+- 파일을 삭제하기 전에는 먼저 알려 준다.
+- 작업을 마치면 결론을 먼저 쓰고, 한 일 / 확인한 방법 / 확인하지 못한 것 세 항목으로 보고한다.
