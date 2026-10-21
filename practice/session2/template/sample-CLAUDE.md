@@ -5,6 +5,7 @@
 - 로컬 실행은 `apps` 폴더에서 `npm install`, `npx wrangler d1 migrations apply DB --local`, `npm run dev` 순서로 한다.
 - 요구사항과 작업 문서는 `docs/`에 둔다.
 - 작업이 끝나면 `apps` 폴더에서 `npm run check`를 실행한다.
+- 응답과 문서는 한국어로 쓴다.
 
 ## 기록 규칙
 - 언제: 결정이 생겼을 때, 작업을 마칠 때
